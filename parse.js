@@ -35,6 +35,9 @@
 // instead of string indexing; the inline token loop dispatches on the
 // first character, calling only the tokenizers that can match there
 // (same order, same guards, fewer calls).
+//
+// Batch 4: the per-bullet list-item regex is cached instead of being
+// rebuilt for every list block.
 
 import { marked } from './vendor/marked/marked.esm.js';
 
