@@ -11,6 +11,17 @@
 // by construction. The speed work lands in the vendored fork step by step,
 // and every step is re-verified against marked's own output on the full
 // practice set before it is kept.
+//
+// Batch 1 (in vendor/marked/marked.esm.js, all behavior-preserving):
+// first-character dispatch guards on the block and inline tokenizers (a
+// tokenizer whose pattern cannot match the current first character returns
+// before its regex runs), a delimiter scan that skips the table and setext
+// regexes when no delimiter/underline line exists, mask fast paths in the
+// inline lexer (no reflink pass when no link definitions exist, no code-span
+// masking when the text holds no backtick, bracket or angle bracket, no
+// mask bookkeeping at all when the text holds no emphasis delimiter), a
+// tab-free fast path in the indent expander, and a CR check before the
+// line-ending normalization replace.
 
 import { marked } from './vendor/marked/marked.esm.js';
 
