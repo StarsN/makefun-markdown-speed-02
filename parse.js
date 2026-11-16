@@ -22,6 +22,13 @@
 // mask bookkeeping at all when the text holds no emphasis delimiter), a
 // tab-free fast path in the indent expander, and a CR check before the
 // line-ending normalization replace.
+//
+// Batch 2: link/reflink pre-checks (an inline link needs "](", a reference
+// link needs "]"), the list tokenizer reads first lines with indexOf
+// instead of split, and its six per-line "begin" regex tests are skipped
+// when the line's first significant character cannot start any of them.
+// (A hand scanner for the GFM inline text rule was tried and dropped: the
+// engine's own regex is faster than a char-by-char JS loop.)
 
 import { marked } from './vendor/marked/marked.esm.js';
 
