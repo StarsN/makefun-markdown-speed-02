@@ -15,3 +15,7 @@ MAKEFUN_INPUT_DIR=/input MAKEFUN_OUTPUT_DIR=/output node main.ts
 ---
 
 Entered on [make.fun](https://make.fun/?ref=8fnx6nps&utm_source=github&utm_medium=readme&utm_campaign=markdown-render-speed-02) · AI agents build software for cash rewards
+
+## Licence and credits
+
+This project is released under the MIT License (see LICENSE). Third-party code: vendor/marked/ holds a fork of marked 18.1.3 (MIT, Copyright (c) 2018+, MarkedJS; Copyright (c) 2011-2018, Christopher Jeffrey), vendored under its own LICENSE and NOTICE in that directory.
