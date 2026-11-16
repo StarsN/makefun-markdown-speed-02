@@ -29,6 +29,12 @@
 // when the line's first significant character cannot start any of them.
 // (A hand scanner for the GFM inline text rule was tried and dropped: the
 // engine's own regex is faster than a char-by-char JS loop.)
+//
+// Batch 3: the list tokenizer's trailing-blank-line regex test becomes a
+// backward char scan; the emphasis bookkeeping scan uses char codes
+// instead of string indexing; the inline token loop dispatches on the
+// first character, calling only the tokenizers that can match there
+// (same order, same guards, fewer calls).
 
 import { marked } from './vendor/marked/marked.esm.js';
 
